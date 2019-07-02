@@ -36,9 +36,15 @@ app.get('/dice/:n/:emoticons', (req, res) => {
 })
 
 app.post('/users',(req, res) => {
-    const newUser = req.body;
-    users.push(newUser)
-    res.json(newUser)
+    
+    if(Object.keys(req.body).length <= 0 ){
+        res.status(400).send('Empty body?')
+        
+    }else{
+        const newUser = req.body;
+        users.push(newUser)
+        res.json(newUser)
+    }
 })
 
 app.listen(3000,() => console.log('Example app listening on port 3000!'))
