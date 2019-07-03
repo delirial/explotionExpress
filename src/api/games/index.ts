@@ -1,13 +1,16 @@
-const router = express.Router()
+import { Router } from 'express'
+import { dice } from './../controllers/gamesController'
+
+const router : Router = Router()
+
 
 router.get('/dice/:n',(req,res) => {
     const number = dice(req.params.n)
-    const result = { result : number }
-    res.json(result)
+    res.json({ result : number })
 })
 
 router.get('/dice/:n/:emoticons', (req, res) => {
 
 })
 
-module.exports = router
+export const gamesRouter: Router = router;

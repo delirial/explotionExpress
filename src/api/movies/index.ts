@@ -1,4 +1,6 @@
-const router = express.Router()
+import { Router } from 'express'
+const router : Router = Router()
+
 const movies = [{id:0,title:'Titanic',year:1949,likes:0}]
 
 router.post('/',(req, res) => {  
@@ -42,3 +44,5 @@ router.put('/like/:title',(req,res) => {
     movies[index].likes += 1
     res.json(movies[index])
 })
+
+export const moviesRouter: Router = router;

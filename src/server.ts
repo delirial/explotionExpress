@@ -1,14 +1,13 @@
-const express = require('express')
-const app = express()
-app.use(express.json())
+import express from 'express'
+const app: express.Application = express();
 
-const moviesRouter = require('./api/movies')
-const usersRouter = require('./api/users')
-const diceRouter = require('./api/games')
+import { moviesRouter } from './api/movies'
+import { usersRouter } from './api/users'
+import { gamesRouter } from './api/games'
 
 app.use('/users',usersRouter)
 app.use('/movies',moviesRouter)
-app.use('/games',diceRouter)
+app.use('/games',gamesRouter)
 
 
-app.listen(3000,() => console.log('Example app listening on port 3000!'))
+app.listen(3000,() => console.log('Example app listening on port 3000'))

@@ -1,3 +1,5 @@
+import { Router } from 'express'
+const router : Router = Router()
 
 const users = [{id: 0,name:'Pepe'},{id: 1,name:'Jose'}]
 
@@ -27,3 +29,4 @@ router.post('/users',(req, res) => {
     }
 })
 
+export const usersRouter: Router = router;
