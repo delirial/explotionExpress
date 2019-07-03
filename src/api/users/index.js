@@ -1,8 +1,8 @@
 const express = require('express')
-const dice = require('./../../dice')
+const dice = require('../../../dice')
 const router = express.Router()
 
-
+//CREATE REQUEST UPDATE DELETE 
 const users = [{id: 0,name:'Pepe'},{id: 1,name:'Jose'}]
 
 
