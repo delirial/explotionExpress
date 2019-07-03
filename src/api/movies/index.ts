@@ -1,5 +1,3 @@
-const express = require('express')
-const router = express.Router()
 
 const movies = [{id:0,title:'Titanic',year:1949,likes:0}]
 
@@ -43,7 +41,7 @@ router.delete('/:id',(req,res) => {
 router.put('/like/:title',(req,res) => {
     const movieTitle = req.params.title
     const index = movies.findIndex(movie => movie.title == movieTitle)
-    movies[index] = { like:0, ...movies[index]}
+    movies[index] = { likes:0, ...movies[index]}
     movies[index].likes += 1
     res.json(movies[index])
 })
