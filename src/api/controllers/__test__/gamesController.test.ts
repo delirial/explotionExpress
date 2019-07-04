@@ -1,8 +1,9 @@
 import { dice } from '../gamesController'
 
 describe('Games testing', () => {
-    it('Throw dice',() => {
-        const result = dice(5)
-        expect(result).toBe(2)
+    it('Should return a value between 0 and 6',() => {
+        const result = dice(6)
+        expect(result).toBeGreaterThan(0)
+        expect(result).toBeLessThan(7)
     })
 }) 
