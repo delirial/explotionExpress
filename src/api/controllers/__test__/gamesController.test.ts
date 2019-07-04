@@ -1,5 +1,8 @@
+import { dice } from '../gamesController'
+
 describe('Games testing', () => {
     it('Throw dice',() => {
-        expect(1).toBe(1)
+        const result = dice(5)
+        expect(result).toBe(2)
     })
-})
+}) 
