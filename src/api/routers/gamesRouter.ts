@@ -9,8 +9,4 @@ router.get('/dice/:n',(req,res) => {
     res.json({ result : number })
 })
 
-router.get('/dice/:n/:emoticons', (req, res) => {
-
-})
-
 export const gamesRouter: Router = router;

@@ -1,9 +1,7 @@
 import express from 'express'
 const app: express.Application = express();
 
-import { moviesRouter } from './api/movies'
-import { usersRouter } from './api/users'
-import { gamesRouter } from './api/games'
+import { usersRouter, moviesRouter, gamesRouter } from './api/routers'
 
 app.use('/users',usersRouter)
 app.use('/movies',moviesRouter)
