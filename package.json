@@ -6,6 +6,7 @@
   "scripts": {
     "serve": "node .",
     "build": "npm run clean && npx tsc",
+    "build:dev": "npm run clean && npx tsc",
     "clean": "rm -r ./dist/*",
     "dev:watch": "nodemon server.js",
     "dev:ts": "ts-node ./src/server.ts",
