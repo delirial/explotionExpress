@@ -1,5 +1,8 @@
 import { Router } from 'express'
+import { createMovie } from '../controllers/moviesController'
 const router : Router = Router()
+
+
 
 const movies = [{id:0,title:'Titanic',year:1949,likes:0}]
 
@@ -7,9 +10,9 @@ router.post('/',(req, res) => {
     if(Object.keys(req.body).length <= 0 )
         return res.status(400).send('Empty body?')
 
-    const newMovie = req.body;
-    movies.push(newMovie)
-    res.json({message:'Added',newMovie})
+    createMovie(req)
+    .then(newMovie => res.json({ message: 'Added', newMovie }))
+    .catch()
 })
 
 router.get('/:id', (req,res ) => {
@@ -46,3 +49,5 @@ router.put('/like/:title',(req,res) => {
 })
 
 export const moviesRouter: Router = router;
+
+
