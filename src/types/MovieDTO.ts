@@ -1,4 +1,4 @@
-export interface MovieDTO{
-    title: String
-    duration?:Number
+export interface MovieDTO {
+    title: string;
+    duration?: number;
 }
