@@ -1,11 +1,15 @@
 import { Router } from 'express';
 import { MoviesController } from '../controllers/moviesController';
+import { SingleMongo } from '../databases/mongodb/initMongo';
 const router: Router = Router();
+
+const connection = new SingleMongo('127.0.0.1', 'movies').connectToMongo();
+const controller = new MoviesController(connection);
 
 const movies = [{ id: 0, title: 'Titanic', year: 1949, likes: 0 }];
 
 router.post('/', (req, res) => {
-    MoviesController.createMovie(req.body);
+    controller.createMovie(req.body);
 });
 
 router.get('/:id', (req, res) => {

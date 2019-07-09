@@ -1,15 +1,43 @@
 import { MoviesController } from '../moviesController';
 import { MovieDTO } from 'MovieDTO';
+import { SingleMongo } from '../../databases/mongodb/initMongo';
 
 describe('MoviesController', () => {
+    const data: MovieDTO = {
+        title: 'Glass',
+        year: 2019.0,
+        genre: ['Terror', 'Suspense'],
+        duration: 129.0,
+    };
     describe('createMovie', () => {
-        test('should return path of save', () => {
-            const data: MovieDTO = {
-                title: 'Matrix',
-                duration: 120,
-            };
-            const movieController = MoviesController.createMovie(data);
-            expect(movieController).toBe('Not implemented');
+        test('should return ID of save', () => {
+
         });
+    });
+    describe('showMovies', () => {
+        test('should return json movies', () => {
+            const connection = new SingleMongo('127.0.0.1', 'movies').connectToMongo();
+            const controller = new MoviesController(connection);
+            const movies = controller.showMovies(data);
+            expect(movies).toBe('Not implemented');
+        });
+    });
+    describe('findMovieByName', () => {
+        test('', () => {});
+    });
+    describe('findMovieByTitle', () => {
+        test('', () => {});
+    });
+    describe('findMovieById', () => {
+        test('', () => {});
+    });
+    describe('findMoviesByYear', () => {
+        test('', () => {});
+    });
+    describe('findMoviesByGenre', () => {
+        test('', () => {});
+    });
+    describe('findMoviesByDuration', () => {
+        test('', () => {});
     });
 });
