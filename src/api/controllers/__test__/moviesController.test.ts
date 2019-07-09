@@ -1,6 +1,7 @@
 import { MoviesController } from '../moviesController';
 import { MovieDTO } from 'MovieDTO';
 import { SingleMongo } from '../../databases/mongodb/initMongo';
+import { Connection, Mongoose } from 'mongoose';
 
 describe('MoviesController', () => {
     const data: MovieDTO = {
@@ -10,15 +11,16 @@ describe('MoviesController', () => {
         duration: 129.0,
     };
     describe('createMovie', () => {
-        test('should return ID of save', () => {
-
-        });
+        test('should return ID of save', () => {});
     });
     describe('showMovies', () => {
         test('should return json movies', () => {
-            const connection = new SingleMongo('127.0.0.1', 'movies').connectToMongo();
-            const controller = new MoviesController(connection);
-            const movies = controller.showMovies(data);
+            async function dbConnect(): Promise<Mongoose> {
+                return await new SingleMongo('127.0.0.1', 'movies').connectToMongo();
+            }
+            const dbConnection = dbConnect();
+            const controller = new MoviesController(dbConnection);
+            const movies = controller.showMovies();
             expect(movies).toBe('Not implemented');
         });
     });

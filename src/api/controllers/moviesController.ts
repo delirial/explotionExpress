@@ -1,10 +1,10 @@
 import { MovieRepository } from '../repo/movieRepository';
 import { MovieDTO } from 'MovieDTO';
-import { Connection } from 'mongoose';
+import { Connection, Mongoose } from 'mongoose';
 
 export class MoviesController {
-    private readonly connection: Connection;
-    public constructor(connection: Connection) {
+    private readonly connection: Promise<Mongoose>;
+    public constructor(connection: Promise<Mongoose>) {
         this.connection = connection;
     }
 
@@ -18,20 +18,14 @@ export class MoviesController {
     }
 
     public createMovie(movie: any) {
-        const connectionState = this.connection.readyState;
-        while (connectionState != 1) {
-            console.log(connectionState);
-            console.log('Waiting Connection...');
-        }
         const dataTransfer = this.parseInput(movie);
         console.log(dataTransfer);
-        const movieRepo = new MovieRepository(dataTransfer, this.connection);
+        const movieRepo = new MovieRepository(this.connection);
         return movieRepo.save();
     }
 
-    public showMovies(movie: any) {
-        const dataTransfer = this.parseInput(movie);
-        const movieRepo = new MovieRepository(dataTransfer, this.connection);
+    public showMovies() {
+        const movieRepo = new MovieRepository(this.connection);
         return movieRepo.showMovies();
     }
     public findMovieByName(movie: any) {

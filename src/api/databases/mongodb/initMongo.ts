@@ -1,4 +1,4 @@
-import { connect, connection } from 'mongoose';
+import { connect } from 'mongoose';
 
 export class SingleMongo {
     private readonly dbURI: string;

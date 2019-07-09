@@ -1,22 +1,22 @@
 import { MovieDTO } from 'MovieDTO';
 import { Movie } from '../databases/mongodb/moviesModel';
-import { Model, Schema, Connection } from 'mongoose';
+import { Model, Schema, Connection, Mongoose } from 'mongoose';
 
 export class MovieRepository {
-    private data: MovieDTO;
-    private connection: Connection | void;
+    //private data: MovieDTO;
+    private connection: Promise<Mongoose> | void;
     private model = Movie;
 
-    public constructor(data: MovieDTO, connection: Connection | void) {
-        this.data = data;
+    public constructor(connection: Promise<Mongoose> | void) {
+        //this.data = data;
         this.connection = connection;
     }
     public save(): string {
         console.log('Not implemented');
         return 'Not implemented';
     }
-    public showMovies() {
-        return this.model.find({});
+    public async showMovies() {
+        return await this.model.find({});
     }
     public findMovieByName(movie: any) {
         console.log('Not implemented');
