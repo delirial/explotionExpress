@@ -17,11 +17,11 @@ export class MovieRepository {
     }
     public showMovies() {
         const connectionState = this.connection.readyState;
-        console.log(connectionState);
-        if (connectionState == 1) {
-            return this.model.find({});
+        while (connectionState != 1) {
+            console.log(connectionState);
+            console.log('Waiting Connection...');
         }
-        return 'Connection lost';
+        return this.model.find({});
     }
     public findMovieByName(movie: any) {
         console.log('Not implemented');
