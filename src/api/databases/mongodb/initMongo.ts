@@ -1,4 +1,4 @@
-import { mongoose } from 'mongoose';
+import { connect, connection } from 'mongoose';
 
 export class SingleMongo {
     private readonly dbURI: string;
@@ -7,8 +7,8 @@ export class SingleMongo {
     }
 
     public connectToMongo() {
-        mongoose.connect(this.dbURI);
+        connect(this.dbURI);
         console.log('Connection Established');
-        return mongoose.connection;
+        return connection;
     }
 }

@@ -1,12 +1,11 @@
 import { MovieDTO } from 'MovieDTO';
-import { MovieModel } from '../databases/mongodb/moviesModel';
-import { mongoose, Model, Schema, Connection } from 'mongoose';
+import { Movie } from '../databases/mongodb/moviesModel';
+import { Model, Schema, Connection } from 'mongoose';
 
 export class MovieRepository {
     private data: MovieDTO;
     private connection: Connection;
-    //TODO:Types of Models???!
-    private model = MovieModel;
+    private model = Movie;
 
     public constructor(data: MovieDTO, connection: Connection) {
         this.data = data;
@@ -17,8 +16,10 @@ export class MovieRepository {
         return 'Not implemented';
     }
     public showMovies() {
-        if (this.connection.states == 1) {
-            this.model.find({});
+        const connectionState = this.connection.readyState;
+        console.log(connectionState);
+        if (connectionState == 1) {
+            return this.model.find({});
         }
         return 'Connection lost';
     }

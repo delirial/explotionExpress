@@ -1,9 +1,18 @@
-import { mongoose, Schema } from 'mongoose';
+import { Document, Model, model, Schema } from 'mongoose';
+import { MovieDTO } from 'MovieDTO';
 
-const MovieSchema = new Schema({
+export interface MovieModel extends MovieDTO, Document {
+    getTitleAndYear(): string;
+}
+const MovieSchema: Schema = new Schema({
     title: String,
     year: Number,
     genre: [String],
     duration: Number,
 });
-export const MovieModel = mongoose.model('movies', MovieSchema);
+
+MovieSchema.methods.getTitleAndYear = function(): string {
+    return this.title + ' ' + this.duration;
+};
+
+export const Movie: Model<MovieModel> = model<MovieModel>('movies', MovieSchema);
