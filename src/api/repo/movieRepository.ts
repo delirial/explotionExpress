@@ -4,10 +4,10 @@ import { Model, Schema, Connection } from 'mongoose';
 
 export class MovieRepository {
     private data: MovieDTO;
-    private connection: Connection;
+    private connection: Connection | void;
     private model = Movie;
 
-    public constructor(data: MovieDTO, connection: Connection) {
+    public constructor(data: MovieDTO, connection: Connection | void) {
         this.data = data;
         this.connection = connection;
     }
@@ -16,11 +16,6 @@ export class MovieRepository {
         return 'Not implemented';
     }
     public showMovies() {
-        const connectionState = this.connection.readyState;
-        while (connectionState != 1) {
-            console.log(connectionState);
-            console.log('Waiting Connection...');
-        }
         return this.model.find({});
     }
     public findMovieByName(movie: any) {

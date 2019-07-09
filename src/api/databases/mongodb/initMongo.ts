@@ -7,8 +7,6 @@ export class SingleMongo {
     }
 
     public connectToMongo() {
-        connect(this.dbURI);
-        console.log('Connection Established');
-        return connection;
+        return connect(this.dbURI);
     }
 }

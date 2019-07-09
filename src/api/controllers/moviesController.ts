@@ -18,6 +18,11 @@ export class MoviesController {
     }
 
     public createMovie(movie: any) {
+        const connectionState = this.connection.readyState;
+        while (connectionState != 1) {
+            console.log(connectionState);
+            console.log('Waiting Connection...');
+        }
         const dataTransfer = this.parseInput(movie);
         console.log(dataTransfer);
         const movieRepo = new MovieRepository(dataTransfer, this.connection);

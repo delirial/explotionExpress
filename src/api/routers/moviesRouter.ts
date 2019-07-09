@@ -3,9 +3,11 @@ import { MoviesController } from '../controllers/moviesController';
 import { SingleMongo } from '../databases/mongodb/initMongo';
 const router: Router = Router();
 
-const connection = new SingleMongo('127.0.0.1', 'movies').connectToMongo();
-const controller = new MoviesController(connection);
-
+async function dbConnect() {
+    return await new SingleMongo('127.0.0.1', 'movies').connectToMongo();
+}
+const dbConnection = dbConnect();
+const controller = new MoviesController(dbConnection);
 const movies = [{ id: 0, title: 'Titanic', year: 1949, likes: 0 }];
 
 router.post('/', (req, res) => {
