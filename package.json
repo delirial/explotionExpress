@@ -13,7 +13,7 @@
     "clean:all": "npm run clean; npm run clean:docs",
     "dev:watch": "nodemon server.js",
     "dev:ts": "ts-node ./src/server.ts",
-    "deploy:netlify":"npm run build; npm run serve",
+    "deploy:netlify":"npm i ;npm run build; npm run serve",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
