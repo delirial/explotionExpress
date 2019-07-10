@@ -4,7 +4,7 @@ import { MovieDTO } from 'MovieDTO';
 export interface MovieModel extends MovieDTO, Document {
     getTitleAndYear(): string;
 }
-const MovieSchema: Schema = new Schema({
+export const MovieSchema: Schema = new Schema({
     title: String,
     year: Number,
     genre: [String],

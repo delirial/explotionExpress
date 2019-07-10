@@ -15,12 +15,8 @@ describe('MoviesController', () => {
     });
     describe('showMovies', () => {
         test('should return json movies', () => {
-            async function dbConnect(): Promise<Mongoose> {
-                return await new SingleMongo('127.0.0.1', 'movies').connectToMongo();
-            }
-            const dbConnection = dbConnect();
-            const controller = new MoviesController(dbConnection);
-            const movies = controller.showMovies();
+            MoviesController.initDatabase()
+            const movies = MoviesController.showMovies();
             expect(movies).toBe('Not implemented');
         });
     });
