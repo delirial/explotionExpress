@@ -1,45 +1,25 @@
-import { MovieDTO } from 'MovieDTO';
 import { Movie } from '../databases/mongodb/moviesModel';
-import { Model, Schema, Connection, Mongoose } from 'mongoose';
+import { SingleMongo } from '../databases/mongodb/initMongo';
+import { DocumentQuery, model, Query } from 'mongoose';
 
 export class MovieRepository {
     //private data: MovieDTO;
-    private connection: Promise<Mongoose> | void;
+    private state: number;
+    private con: SingleMongo;
     private model = Movie;
 
-    public constructor(connection: Promise<Mongoose> | void) {
-        //this.data = data;
-        this.connection = connection;
+    public constructor() {
+        this.con = new SingleMongo('127.0.0.1', 'movies');
+        this.con.connection.on('error', console.error.bind(console, 'connection error:'));
+        this.con.connection.once('open', function() {
+            console.log('We are connected');
+        });
     }
-    public save(): string {
-        console.log('Not implemented');
-        return 'Not implemented';
+    public async getConnection() {
+        return await this.con.connection;
     }
+
     public async showMovies() {
-        return await this.model.find({});
-    }
-    public findMovieByName(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-    public findMovieByTitle(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-    public findMovieById(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-    public findMoviesByYear(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-    public findMoviesByGenre(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-    public findMoviesByDuration(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
+        return await this.model.find();
     }
 }
