@@ -2,12 +2,16 @@ import { Router } from 'express';
 import { MoviesController } from '../controllers/moviesController';
 const router: Router = Router();
 
-MoviesController.initDatabase();
+const controller = new MoviesController();
+const db = controller.initDatabase();
 
-
-router.get('/get-movies',(req,res) => {
-    res.json(MoviesController.showMovies());
-})
-
+router.get('/get-movies', (req, res) => {
+    controller
+        .showMovies()
+        .then(data => {
+            res.json(data);
+        })
+        .catch(e => res.json({ error: e }));
+});
 
 export const moviesRouter: Router = router;
