@@ -1,17 +1,11 @@
 import { Router } from 'express';
 import { MoviesController } from '../controllers/moviesController';
-import { SingleMongo } from '../databases/mongodb/initMongo';
 const router: Router = Router();
 
-async function dbConnect() {
-    return await new SingleMongo('127.0.0.1', 'movies').connectToMongo();
-}
-const dbConnection = dbConnect();
-const controller = new MoviesController(dbConnection);
-const movies = [{ id: 0, title: 'Titanic', year: 1949, likes: 0 }];
+MoviesController.initDatabase();
 
 router.post('/', (req, res) => {
-    controller.createMovie(req.body);
+    MoviesController.createMovie(req.body);
 });
 
 router.get('/:id', (req, res) => {
@@ -19,6 +13,10 @@ router.get('/:id', (req, res) => {
     const movie = movies.find(movie => movie.id == moviesId);
     res.json(movie);
 });
+
+router.get('/get-movies',(req,res) => {
+    res.json(MoviesController.showMovies());
+})
 
 router.put('/:id', (req, res) => {
     const moviesId = req.params.id;

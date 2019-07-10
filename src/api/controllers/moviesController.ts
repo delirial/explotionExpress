@@ -1,14 +1,18 @@
 import { MovieRepository } from '../repo/movieRepository';
 import { MovieDTO } from 'MovieDTO';
-import { Connection, Mongoose } from 'mongoose';
 
 export class MoviesController {
-    private readonly connection: Promise<Mongoose>;
-    public constructor(connection: Promise<Mongoose>) {
-        this.connection = connection;
+    private static repo: MovieRepository;
+    /**
+     * Init Repository for Movies
+     * @returns MovieRepository
+     */
+    public static initDatabase() {
+        this.repo = new MovieRepository();
+        return this.repo;
     }
 
-    private parseInput(data: any): MovieDTO {
+    private static parseInput(data: any): MovieDTO {
         return {
             title: data.title,
             year: data.year,
@@ -17,16 +21,14 @@ export class MoviesController {
         };
     }
 
-    public createMovie(movie: any) {
-        const dataTransfer = this.parseInput(movie);
-        console.log(dataTransfer);
-        const movieRepo = new MovieRepository(this.connection);
-        return movieRepo.save();
+    public static createMovie(body: any) {
+        const movie: MovieDTO = this.parseInput(body);
+        console.log(movie);
+        return MovieRepository.save();
     }
 
-    public showMovies() {
-        const movieRepo = new MovieRepository(this.connection);
-        return movieRepo.showMovies();
+    public static showMovies() {
+        return this.repo.showMovies();
     }
     public findMovieByName(movie: any) {
         console.log('Not implemented');

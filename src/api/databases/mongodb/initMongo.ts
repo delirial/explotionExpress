@@ -1,12 +1,11 @@
-import { connect } from 'mongoose';
+import { Connection, createConnection } from 'mongoose';
 
 export class SingleMongo {
     private readonly dbURI: string;
+    public connection: Connection;
+
     public constructor(url: string, collection: string) {
         this.dbURI = `mongodb://${url}/${collection}`;
-    }
-
-    public connectToMongo() {
-        return connect(this.dbURI);
+        this.connection = createConnection(this.dbURI);
     }
 }
