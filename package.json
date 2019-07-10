@@ -15,7 +15,7 @@
     "dev:ts": "ts-node ./src/server.ts",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "keywords": [],
   "author": "",
