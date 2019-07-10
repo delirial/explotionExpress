@@ -19,10 +19,6 @@ export class MovieRepository {
         this.state = this.con.connection.readyState;
         return this.state;
     }
-    public static save(): string {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
 
     private async parseQuery(query: DocumentQuery<MovieModel[], MovieModel, {}>) {
         return await query.exec((err, res) => {
@@ -35,35 +31,5 @@ export class MovieRepository {
     public async showMovies() {
         const query = this.model.find({});
         return await this.parseQuery(query);
-    }
-
-    public findMovieByName(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-
-    public findMovieByTitle(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-
-    public findMovieById(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-
-    public findMoviesByYear(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-
-    public findMoviesByGenre(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
-    }
-
-    public findMoviesByDuration(movie: any) {
-        console.log('Not implemented');
-        return 'Not implemented';
     }
 }

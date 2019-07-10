@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30c46495-f4af-4ddc-82f6-161d2094da19" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/controllers/__test__/moviesController.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/__test__/moviesController.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/databases/mongodb/initMongo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/databases/mongodb/initMongo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/databases/mongodb/moviesModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/databases/mongodb/moviesModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/repo/__test__/movieRepository.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/repo/__test__/movieRepository.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/repo/movieRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/repo/movieRepository.ts" afterDir="false" />
-    </list>
+    <list default="true" id="30c46495-f4af-4ddc-82f6-161d2094da19" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -43,8 +36,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/api/repo/__test__/movieRepository.test.ts">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="168">
-                      <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+                    <state relative-caret-position="144">
+                      <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
                       <folding>
                         <element signature="e#0#53#0" expanded="true" />
                       </folding>
@@ -84,7 +77,7 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/api/routers/moviesRouter.ts">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="216">
+                    <state relative-caret-position="240">
                       <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
                       <folding>
                         <element signature="e#0#33#0" expanded="true" />
@@ -315,7 +308,7 @@
       <updated>1562552288365</updated>
       <workItem from="1562552291889" duration="7622000" />
       <workItem from="1562665308147" duration="10930000" />
-      <workItem from="1562677200041" duration="12211000" />
+      <workItem from="1562677200041" duration="12850000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Added Repo functionality&quot;">
       <created>1562584400187</created>
@@ -363,7 +356,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30763000" />
+    <option name="totallyTimeSpent" value="31402000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -376,6 +369,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" sideWeight="0.50083196" side_tool="true" weight="0.17913593" />
@@ -567,7 +561,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/routers/moviesRouter.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="240">
           <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
@@ -599,16 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/repo/__test__/movieRepository.test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/controllers/__test__/moviesController.test.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -625,6 +609,16 @@
           <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/repo/__test__/movieRepository.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
