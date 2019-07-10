@@ -2,12 +2,12 @@ import { MovieRepository } from '../repo/movieRepository';
 import { MovieDTO } from 'MovieDTO';
 
 export class MoviesController {
-    private static repo: MovieRepository;
+    private repo: MovieRepository;
     /**
      * Init Repository for Movies
      * @returns MovieRepository
      */
-    public static initDatabase() {
+    public initDatabase() {
         this.repo = new MovieRepository();
         return this.repo;
     }
@@ -21,7 +21,7 @@ export class MoviesController {
         };
     }
 
-    public static showMovies() {
-        return this.repo.showMovies();
+    public async showMovies() {
+        return await this.repo.showMovies();
     }
 }
