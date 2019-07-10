@@ -1,0 +1,32 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include" : [
+      "dist/api"
+    ],
+    "exclude": [
+      ".git",
+      "node_modules",
+      "src"
+    ],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "encoding": "utf8",
+    "template": "templates/default",
+    "destination": "docs/api",
+    "recurse": true,
+    "verbose": true
+  },
+  "plugins": ["node_modules/better-docs/category"],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true
+    }
+  }
+}
