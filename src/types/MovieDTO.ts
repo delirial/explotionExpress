@@ -1,4 +1,6 @@
 export interface MovieDTO {
     title: string;
-    duration?: number;
+    year: number;
+    genre: string[];
+    duration: number;
 }

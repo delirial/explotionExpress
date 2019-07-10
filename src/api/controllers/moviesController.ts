@@ -2,18 +2,26 @@ import { MovieRepository } from '../repo/movieRepository';
 import { MovieDTO } from 'MovieDTO';
 
 export class MoviesController {
+    private repo: MovieRepository;
+    /**
+     * Init Repository for Movies
+     * @returns MovieRepository
+     */
+    public initDatabase() {
+        this.repo = new MovieRepository();
+        return this.repo;
+    }
+
     private static parseInput(data: any): MovieDTO {
-        //TODO: Parse Request on MovieDTO
         return {
             title: data.title,
+            year: data.year,
+            genre: data.genre,
             duration: data.duration,
         };
     }
 
-    public static createMovie(movie: any) {
-        const dataTransfer = this.parseInput(movie);
-        console.log(dataTransfer)
-        const movieRepo = new MovieRepository(dataTransfer);
-        return movieRepo.save();
+    public async showMovies() {
+        return await this.repo.showMovies();
     }
 }

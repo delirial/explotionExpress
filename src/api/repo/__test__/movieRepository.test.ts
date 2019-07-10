@@ -1,15 +1,20 @@
 import { MovieRepository } from '../movieRepository';
-import { MovieDTO } from 'MovieDTO';
 
 describe('MovieRepository', () => {
-    describe('save()', () => {
-        test('should return path of data', () => {
-            const data: MovieDTO = {
-                title: 'Matrix',
-                duration: 120,
-            };
-            const movie = new MovieRepository(data);
-            expect(movie.save()).toBe('Not implemented');
+    const repo = new MovieRepository();
+
+    describe('getConnectionState', () => {
+        test('Check connection to database', () => {
+            return repo.getConnection().then(state => {
+                expect(state.readyState).toBe(1);
+            });
+        });
+    });
+    describe('showMovies', () => {
+        test('should return json', () => {
+            return repo.showMovies().then(data => {
+                expect(data).toMatchSnapshot();
+            });
         });
     });
 });

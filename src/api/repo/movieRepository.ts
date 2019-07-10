@@ -1,25 +1,25 @@
-import { MovieDTO } from 'MovieDTO';
+import { Movie } from '../databases/mongodb/moviesModel';
+import { SingleMongo } from '../databases/mongodb/initMongo';
+import { DocumentQuery, model, Query } from 'mongoose';
 
 export class MovieRepository {
-    private data: MovieDTO;
-    public constructor(data: MovieDTO) {
-        this.data = data;
+    //private data: MovieDTO;
+    private state: number;
+    private con: SingleMongo;
+    private model = Movie;
+
+    public constructor() {
+        this.con = new SingleMongo('127.0.0.1', 'movies');
+        this.con.connection.on('error', console.error.bind(console, 'connection error:'));
+        this.con.connection.once('open', function() {
+            console.log('We are connected');
+        });
     }
-    public save(): string {
-        console.log('Not implemented');
-        return 'Not implemented';
-        /*       return new Promise((resolve,reject) => {
-            //TODO
-            movies.push(body);
-        })*/
+    public async getConnection() {
+        return await this.con.connection;
     }
-    public  load() {
-        throw new Error('Not implemented');
-    }
-    public  findMovieByTitle() {
-        throw new Error('Not implemented');
-    }
-    public  findMovieById() {
-        throw new Error('Not implemented');
+
+    public async showMovies() {
+        return await this.model.find();
     }
 }

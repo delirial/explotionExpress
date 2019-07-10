@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesController Parse Data to Json Validate Data for Database 1`] = `
+Array [
+  Object {
+    "_id": "5d246d902329923d43151365",
+    "duration": 100,
+    "genre": Array [
+      "Comedy",
+      "Animation",
+    ],
+    "title": "Toy Story 4",
+    "year": 2019,
+  },
+  Object {
+    "_id": "5d246d902329923d43151366",
+    "duration": 181,
+    "genre": Array [
+      "SuperHero",
+      "Action",
+    ],
+    "title": "Vengadores:Endgame",
+    "year": 2019,
+  },
+  Object {
+    "_id": "5d246d902329923d43151367",
+    "duration": 129,
+    "genre": Array [
+      "Terror",
+      "Suspense",
+    ],
+    "title": "Glass",
+    "year": 2019,
+  },
+]
+`;
