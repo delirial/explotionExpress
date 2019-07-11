@@ -21,8 +21,8 @@ COPY mongo-init.js .
 WORKDIR /user/src/app
 COPY package*.json ./
 #dev mode
-#RUN npm i
-RUN npm ci --only=production
+RUN npm i
+#RUN npm ci --only=production
 COPY . .
 RUN npm run build:local
 # process
