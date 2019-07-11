@@ -5,7 +5,8 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node .",
-    "build": "npx tsc",
+    "build": "chmod +x build.sh; ./build.sh ;npm i ;npm run build:local",
+    "build:local": "npx tsc",
     "build:docs": "jsdoc -c jsdoc.config.json",
     "build:dev": "npm run clean && npx tsc",
     "clean": "rm -r ./dist",
