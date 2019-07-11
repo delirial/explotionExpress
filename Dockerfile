@@ -16,6 +16,7 @@ ENV MONGO_INITDB_ROOT_PASSWORD 1234
 ENV MONGO_INITDB_DATABASE movies
 
 COPY mongo-init.js .
+RUN mkdir /data/db
 
 #Node config project
 WORKDIR /user/src/app
@@ -32,7 +33,6 @@ EXPOSE 28017
 # node
 EXPOSE 3000
 #TODO maybe add the data folder?
-VOLUME /data/db
 #Need to started script executed
 CMD ["npm","run","start:database"]
 
