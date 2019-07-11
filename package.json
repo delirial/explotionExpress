@@ -4,7 +4,7 @@
   "description": "Explosions API",
   "main": "dist/server.js",
   "scripts": {
-    "serve": "node .",
+    "start": "node .",
     "build": "npx tsc",
     "build:docs": "jsdoc -c jsdoc.config.json",
     "build:dev": "npm run clean && npx tsc",
