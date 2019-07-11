@@ -16,7 +16,7 @@ ENV MONGO_INITDB_ROOT_PASSWORD 1234
 ENV MONGO_INITDB_DATABASE movies
 
 COPY mongo-init.js .
-RUN mkdir /data/db
+RUN mkdir data/db
 
 #Node config project
 WORKDIR /user/src/app
