@@ -10,13 +10,12 @@ matrix:
   include:
     - language: bash  
       name: "Docker Build"    
-      before_script: docker build -t express:mongo .
+      before_script: docker build -t express-mongo .
       script: docker run -d -p 27017:27017 express:mongo
       after_success: 
-        - curl 127.0.0.1:27017 
+        - docker ps  
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker tag travis-latest $DOCKER_USERNAME/express-mongo
-        - docker push $DOCKER_USERNAME/express-mongo
+        - docker push $DOCKER_USERNAME/express-mongo:travis
 
 
     - language: node_js
@@ -39,7 +38,9 @@ matrix:
       name: "Testing Server"
       nodejs:
           - "10"
-      before_script: npm run build
+      before_script: 
+        - docker pull $DOCKER_USERNAME/express-mongo:travis
+        - npm run build
       script:
         - npm run test
         - npm run test:coverage
