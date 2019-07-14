@@ -19,7 +19,7 @@
     "deploy:netlify": "chmod +x build.sh; ./build.sh ;npm i ;npm run build; npm run serve",
     "test": "jest --detectOpenHandles --updateSnapshot --forceExit",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage --detectOpenHandles --updateSnapshot --forceExit",
     "coverage:coveralls": "cat ./coverage/lcov.info | coveralls",
     "test:coveralls:now": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "coverage:codacy": "cat ./coverage/lcov.info | codacy-coverage --token $PROJECT_TOKEN"

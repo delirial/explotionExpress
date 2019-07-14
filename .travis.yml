@@ -18,11 +18,10 @@ matrix:
         - docker ps 
         - set -e PORT=3000
       script:
-        - npm run test
         - npm run test:coverage
-        - npm run test:coveralls
+        - npm run coverage:coveralls
         - npm run coverage:codacy
-        
+
     - language: node_js
       name : "Documentation Deployment"
       nodejs:
