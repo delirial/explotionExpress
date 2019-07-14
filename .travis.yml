@@ -12,7 +12,12 @@ matrix:
       name: "Docker Build"    
       before_script: docker build -t express:mongo .
       script: docker run -d -p 27017:27017 express:mongo
-      after_success: curl 127.0.0.1:27017 
+      after_success: 
+        - curl 127.0.0.1:27017 
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker tag travis-latest $DOCKER_USERNAME/express-mongo
+        - docker push $DOCKER_USERNAME/express-mongo
+
 
     - language: node_js
       name : "Documentation Deployment"
@@ -22,7 +27,7 @@ matrix:
         - npm run build
         - npm run build:docs
       deploy:
-        local_dir: docs
+        local_dir: docs/api
         github_token: $GH_TOKEN
         provider: pages
         skip_cleanup: true
