@@ -8,6 +8,7 @@ script:
   npm run build
 before_deploy:
   - npm run test
+  - npm run test:coverage
   - npm run coverage:codacy
 deploy:
   provider: pages
