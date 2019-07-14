@@ -41,6 +41,8 @@ matrix:
       before_script: 
         - docker pull $DOCKER_USERNAME/express-mongo
         - docker run -p 27017:27017 -d $DOCKER_USERNAME/express-mongo
+        - docker ps 
+        - set -e PORT=3000
       script:
         - npm run test
         - npm run test:coverage
