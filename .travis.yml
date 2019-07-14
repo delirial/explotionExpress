@@ -1,11 +1,16 @@
 language: node_js
 node_js:
   "node"
-
+cache:
+  directories:
+    "node_modules"
 script:
   - npm run build
   - npm run test:coveralls
 before_deploy:
+  - npm run test
+  - npm run test:coverage
+  - npm run coverage:codacy
   npm run build:docs
 deploy:
   provider: pages
