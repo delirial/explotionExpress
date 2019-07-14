@@ -1,4 +1,4 @@
-import { Router } from "express";
-const router : Router = Router()
+import { Router } from 'express';
+const router: Router = Router();
 
-export const moviesController : Router = router
+export const moviesController: Router = router;
