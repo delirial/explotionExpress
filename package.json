@@ -11,12 +11,13 @@
     "dev:watch": "nodemon server.js",
     "dev:ts": "ts-node ./src/server.ts",
     "test": "jest",
-    "test:watch":"jest --watch"
+    "test:watch": "jest --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eslint-plugin-jest": "^22.7.2",
     "express": "^4.17.1",
     "typescript": "^3.5.2"
   },

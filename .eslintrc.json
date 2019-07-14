@@ -7,8 +7,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:prettier/recommended",
-        "plugin:vue/essential",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:jest/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -19,7 +19,6 @@
         "sourceType": "module"
     },
     "plugins": [
-        "vue",
         "prettier"
     ],
     "rules": {

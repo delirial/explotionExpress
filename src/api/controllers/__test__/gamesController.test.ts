@@ -1,5 +1,5 @@
-describe('Games testing', () => {
-    it('Throw dice',() => {
-        expect(1).toBe(1)
-    })
-})
+describe('Games testing', (): void => {
+    it('Throw dice', (): void => {
+        expect(1).toBe(1);
+    });
+});
