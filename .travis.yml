@@ -15,7 +15,7 @@ matrix:
       after_success: 
         - docker ps  
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker push $DOCKER_USERNAME/express-mongo:travis
+        - docker push $DOCKER_USERNAME/express-mongo
 
 
     - language: node_js
