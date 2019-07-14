@@ -1,2 +1,2 @@
-# Explosions [![Build Status](https://travis-ci.com/ArcaDelDelirio/explotionExpress.svg?branch=master)](https://travis-ci.com/ArcaDelDelirio/explotionExpress)
+# Explosions [![Build Status](https://travis-ci.com/ArcaDelDelirio/explotionExpress.svg?branch=master)](https://travis-ci.com/ArcaDelDelirio/explotionExpress)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c1b7217d1bb7450fbdca2be20877650e)](https://www.codacy.com/app/ArcaDelDelirio/explotionExpress?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ArcaDelDelirio/explotionExpress&amp;utm_campaign=Badge_Grade)
 BackEnd API with Express 
