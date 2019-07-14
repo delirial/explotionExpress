@@ -7,7 +7,8 @@ cache:
 script:
   npm run build
 before_deploy:
-  npm run test
+  - npm run test
+  - npm run coverage:codacy
 deploy:
   provider: pages
   skip_cleanup: true
