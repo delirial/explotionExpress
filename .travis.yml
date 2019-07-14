@@ -39,7 +39,7 @@ matrix:
       nodejs:
           - "10"
       before_script: 
-        - docker pull $DOCKER_USERNAME/express-mongo:latest
+        - docker pull $DOCKER_USERNAME/express-mongo
         - docker run -p 27017:27017 
       script:
         - npm run test
