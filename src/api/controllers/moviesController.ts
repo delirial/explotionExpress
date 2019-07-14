@@ -1,4 +1,27 @@
-import { Router } from 'express';
-const router: Router = Router();
+import { MovieRepository } from '../repo/movieRepository';
+import { MovieDTO } from 'MovieDTO';
 
-export const moviesController: Router = router;
+export class MoviesController {
+    private repo: MovieRepository;
+    /**
+     * Init Repository for Movies
+     * @returns MovieRepository
+     */
+    public initDatabase() {
+        this.repo = new MovieRepository();
+        return this.repo;
+    }
+
+    private static parseInput(data: any): MovieDTO {
+        return {
+            title: data.title,
+            year: data.year,
+            genre: data.genre,
+            duration: data.duration,
+        };
+    }
+
+    public async showMovies() {
+        return await this.repo.showMovies();
+    }
+}

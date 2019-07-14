@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { MoviesController } from '../controllers/moviesController';
 const router: Router = Router();
 
 const movies = [{ id: 0, title: 'Titanic', year: 1949, likes: 0 }];
@@ -11,12 +12,22 @@ router.post('/', (req, res) => {
     res.json({ message: 'Added', newMovie });
 });
 
+const controller = new MoviesController();
+const db = controller.initDatabase();
 router.get('/:id', (req, res) => {
     const moviesId = req.params.id;
     const movie = movies.find(movie => movie.id == moviesId);
     res.json(movie);
 });
 
+router.get('/get-movies', (req, res) => {
+    controller
+        .showMovies()
+        .then(data => {
+            res.json(data);
+        })
+        .catch(e => res.json({ error: e }));
+});
 router.put('/:id', (req, res) => {
     const moviesId = req.params.id;
     const newMovie = req.body;
