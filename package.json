@@ -6,7 +6,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "node .",
-    "start:database": "mongod & sleep 5 && mongo mongo-init.js && npm run start",
+    "start:database": "mongod --bind_ip_all & sleep 5 && mongo mongo-init.js && npm run start",
     "build": "chmod +x build.sh; ./build.sh ;npm i ;npm run build:local",
     "build:local": "npx tsc",
     "build:docs": "jsdoc -c jsdoc.config.json",
