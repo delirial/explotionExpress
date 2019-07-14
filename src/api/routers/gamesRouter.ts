@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { dice } from './../controllers/gamesController';
+import { dice } from '../controllers/gamesController';
 
 const router: Router = Router();
 

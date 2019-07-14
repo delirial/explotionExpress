@@ -1,6 +1,5 @@
 import { Movie } from '../databases/mongodb/moviesModel';
 import { SingleMongo } from '../databases/mongodb/initMongo';
-import { DocumentQuery, model, Query } from 'mongoose';
 
 export class MovieRepository {
     //private data: MovieDTO;

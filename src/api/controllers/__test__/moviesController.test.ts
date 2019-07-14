@@ -1,7 +1,7 @@
 import { MoviesController } from '../moviesController';
 
 describe('MoviesController', () => {
-    const controller = new MoviesController()
+    const controller = new MoviesController();
     const db = controller.initDatabase();
     describe('initDatabase', () => {
         test('Check Connection to Database', () => {
