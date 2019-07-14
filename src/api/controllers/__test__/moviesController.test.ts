@@ -1,5 +1,5 @@
-describe('Movies testing', (): void => {
-    it('Movies test types', (): void => {
+describe('Movies testing', () => {
+    it('Movies test types', () => {
         expect(1).toBe(1);
     });
 });

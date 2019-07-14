@@ -1,5 +1,5 @@
-describe('Users testing', (): void => {
-    it('User check datatype', (): void => {
+describe('Users testing', () => {
+    it('User check datatype', () => {
         expect(1).toBe(1);
     });
 });
