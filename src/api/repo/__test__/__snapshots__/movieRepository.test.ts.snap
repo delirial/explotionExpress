@@ -3,7 +3,7 @@
 exports[`MovieRepository showMovies should return json 1`] = `
 Array [
   Object {
-    "_id": "5d246d902329923d43151365",
+    "_id": "5d2bb7bd06d8cc0d851ce86d",
     "duration": 100,
     "genre": Array [
       "Comedy",
@@ -13,7 +13,7 @@ Array [
     "year": 2019,
   },
   Object {
-    "_id": "5d246d902329923d43151366",
+    "_id": "5d2bb7bd06d8cc0d851ce86e",
     "duration": 181,
     "genre": Array [
       "SuperHero",
@@ -23,7 +23,7 @@ Array [
     "year": 2019,
   },
   Object {
-    "_id": "5d246d902329923d43151367",
+    "_id": "5d2bb7bd06d8cc0d851ce86f",
     "duration": 129,
     "genre": Array [
       "Terror",
