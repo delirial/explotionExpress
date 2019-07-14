@@ -1,21 +1,26 @@
 language: node_js
 node_js:
-  "node"
-cache:
-  directories:
-    "node_modules"
+  - "10"
+
+services:
+  - docker
+
+before_install:
+  - chmod +x bdocker.sh
+  - ./bdocker.sh
 script:
   - npm run build
-  - npm run test:coveralls
+  - npm run build:docs
 before_deploy:
   - npm run test
   - npm run test:coverage
+  - npm run test:coveralls
   - npm run coverage:codacy
-  npm run build:docs
+
 deploy:
   provider: pages
   skip_cleanup: true
   local_dir: docs
   github_token: $GH_TOKEN 
   on:
-    branch: master
+    branch: docs
