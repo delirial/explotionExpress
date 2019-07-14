@@ -8,11 +8,19 @@ services:
 
 matrix:
   include:
-    - language: bash  
-      name: "Docker Build"    
-      before_script: docker build -t express:mongo .
-      script: docker run -d -p 27017:27017 express:mongo
-      after_success: curl 127.0.0.1:27017 
+    - language: node_js
+      name: "Testing Docker Server"
+      nodejs:
+          - "10"
+      before_script: 
+        - docker pull $DOCKER_USERNAME/express-mongo
+        - docker run -p 27017:27017 -d $DOCKER_USERNAME/express-mongo
+        - docker ps 
+        - set -e PORT=3000
+      script:
+        - npm run test:coverage
+        - npm run coverage:coveralls
+        - npm run coverage:codacy
 
     - language: node_js
       name : "Documentation Deployment"
@@ -22,22 +30,24 @@ matrix:
         - npm run build
         - npm run build:docs
       deploy:
-        local_dir: docs
+        local_dir: docs/api
         github_token: $GH_TOKEN
         provider: pages
         skip_cleanup: true
         keep_history: true
         on:
           branch: docs
+    
+    - language: bash  
+      name: "Docker Build"    
+      before_script: docker build -t $DOCKER_USERNAME/express-mongo .
+      script: docker run -d -p 27017:27017 $DOCKER_USERNAME/express-mongo
+      after_success: 
+        - docker ps  
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker push $DOCKER_USERNAME/express-mongo:latest
 
-    - language: node_js
-      name: "Testing Server"
-      nodejs:
-          - "10"
-      before_script: npm run build
-      script:
-        - npm run test
-        - npm run test:coverage
-        - npm run test:coveralls
-        - npm run coverage:codacy
+
+
+
       
