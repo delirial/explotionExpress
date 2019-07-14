@@ -1,26 +1,41 @@
-language: node_js
-node_js:
-  - "10"
+branches:
+  only:
+    - master
+    - docs
 
 services:
   - docker
 
-before_install:
-  - chmod +x bdocker.sh
-  - ./bdocker.sh
-script:
-  - npm run build
-  - npm run build:docs
-before_deploy:
-  - npm run test
-  - npm run test:coverage
-  - npm run test:coveralls
-  - npm run coverage:codacy
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: docs
-  github_token: $GH_TOKEN 
-  on:
-    branch: docs
+matrix:
+  include:
+    - name: "Docker Build"
+    - language: bash      
+      before_script: docker build -t express:mongo .
+      script: docker run -d -p 27017:27017 express:mongo
+      after_success: curl 127.0.0.1:27017 
+    - name : "Documentation Deployment"
+    - language: node_js
+      nodejs:
+        - "10"
+      script: 
+        - npm run build
+        - npm run build:docs
+      deploy:
+        local_dir: docs
+        github_token: $GH_TOKEN
+        provider: pages
+        skip_cleanup: true
+        keep_history: true
+        on:
+          branch: docs
+    - name: "Testing Server"
+    - language: node_js
+      nodejs:
+          - "10"
+      before_script: npm run build
+      script:
+        - npm run test
+        - npm run test:coverage
+        - npm run test:coveralls
+        - npm run coverage:codacy
+      

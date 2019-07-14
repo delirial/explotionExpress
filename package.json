@@ -20,7 +20,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "coverage:coveralls": "cat ./coverage/lcov.info | coveralls",
+    "test:coveralls:now": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "coverage:codacy": "cat ./coverage/lcov.info | codacy-coverage --token $PROJECT_TOKEN"
   },
   "keywords": [],
