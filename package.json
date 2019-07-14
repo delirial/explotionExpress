@@ -17,7 +17,7 @@
     "dev:watch": "nodemon server.js",
     "dev:ts": "ts-node ./src/server.ts",
     "deploy:netlify": "chmod +x build.sh; ./build.sh ;npm i ;npm run build; npm run serve",
-    "test": "jest --detectOpenHandles --updateSnapshot",
+    "test": "jest --detectOpenHandles --updateSnapshot --forceExit",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "coverage:coveralls": "cat ./coverage/lcov.info | coveralls",
