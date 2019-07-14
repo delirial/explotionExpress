@@ -8,13 +8,14 @@ services:
 
 matrix:
   include:
-    - name: "Docker Build"
-    - language: bash      
+    - language: bash  
+    - name: "Docker Build"    
       before_script: docker build -t express:mongo .
       script: docker run -d -p 27017:27017 express:mongo
       after_success: curl 127.0.0.1:27017 
-    - name : "Documentation Deployment"
+
     - language: node_js
+    - name : "Documentation Deployment"
       nodejs:
         - "10"
       script: 
@@ -28,8 +29,9 @@ matrix:
         keep_history: true
         on:
           branch: docs
-    - name: "Testing Server"
+
     - language: node_js
+    - name: "Testing Server"
       nodejs:
           - "10"
       before_script: npm run build
