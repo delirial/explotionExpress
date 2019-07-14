@@ -10,12 +10,12 @@ matrix:
   include:
     - language: bash  
       name: "Docker Build"    
-      before_script: docker build -t express-mongo .
+      before_script: docker build -t $DOCKER_USERNAME/express-mongo .
       script: docker run -d -p 27017:27017 express-mongo
       after_success: 
         - docker ps  
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker push $DOCKER_USERNAME/express-mongo
+        - docker push $DOCKER_USERNAME/express-mongo:latest
 
 
     - language: node_js
