@@ -11,7 +11,7 @@ matrix:
     - language: bash  
       name: "Docker Build"    
       before_script: docker build -t $DOCKER_USERNAME/express-mongo .
-      script: docker run -d -p 27017:27017 express-mongo
+      script: docker run -d -p 27017:27017 $DOCKER_USERNAME/express-mongo
       after_success: 
         - docker ps  
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -35,12 +35,12 @@ matrix:
           branch: docs
 
     - language: node_js
-      name: "Testing Server"
+      name: "Testing Docker Server"
       nodejs:
           - "10"
       before_script: 
-        - docker pull $DOCKER_USERNAME/express-mongo:travis
-        - npm run build
+        - docker pull $DOCKER_USERNAME/express-mongo:latest
+        - docker run -p 27017:27017 
       script:
         - npm run test
         - npm run test:coverage
