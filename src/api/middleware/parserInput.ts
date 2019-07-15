@@ -1,4 +1,4 @@
-import { MovieDTO } from "MovieDTO";
+import  MovieDTO  from "../../types/MovieDTO";
 
 export class ParserInput{
     private static parseInput(data: any): MovieDTO {

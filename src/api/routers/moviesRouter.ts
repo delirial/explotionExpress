@@ -10,16 +10,15 @@ const controller = new MoviesController(new MovieRepository);
 router.get('/:id', (req, res) => {
     const moviesId = req.params.id;
     const movie = controller.getMovieById(moviesId)
-    .then((data: MovieDTO) => {
-        res.json(movie);
+    .then(data => {
+        res.json(data);
     })
     .catch(e => res.json({ error: e }))
 });
 
 router.get('/showMovies', (req, res) => {
-    controller
-        .showMovies()
-        .then((data: MovieDTO) => {
+    controller.showMovies()
+        .then(data => {
             res.json(data);
         })
         .catch(e => res.json({ error: e }));
@@ -38,8 +37,8 @@ router.put('/:id', (req, res) => {
     const moviesId = req.params.id;
     const newMovie = req.body;
     controller.updateMovieById(moviesId,newMovie)
-    .then((data: MovieDTO) => {
-        res.json({ message: 'Updated' });
+    .then(data => {
+        res.json({ message: 'Updated' , object: data});
     })
     .catch(e => res.json({ error: e }));
 
@@ -48,8 +47,8 @@ router.put('/:id', (req, res) => {
 router.put('/like/:id', (req, res) => {
     const movieId = req.params.id;
     controller.giveLikeById(movieId)
-    .then((data: MovieDTO) => {
-        res.json({ message: 'Likes' });
+    .then(data => {
+        res.json({ message: 'Likes', object: data });
     })
     .catch(e => res.json({ error: e }));
 });
@@ -57,8 +56,8 @@ router.put('/like/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     const moviesId = req.params.id;
     controller.deleteMovieById(moviesId)
-    .then((data: MovieDTO) => {
-        res.json({ message: 'Deleted' });
+    .then(data => {
+        res.json({ message: 'Deleted', object: data });
     })
     .catch(e => res.json({ error: e }));
     

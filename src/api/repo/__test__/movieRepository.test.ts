@@ -12,7 +12,7 @@ describe('MovieRepository', () => {
     });
     describe('showMovies', () => {
         test('should return json', () => {
-            return repo.showMovies().then(data => {
+            return repo.getAllMovies().then(data => {
                 expect(data).toMatchSnapshot();
             });
         });
