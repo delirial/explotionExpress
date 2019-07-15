@@ -4,12 +4,12 @@ export class MoviesController {
     private repo: MovieRepository;
 
 
-    constructor(Repository){
-        
+    constructor(repository: MovieRepository){
+        this.initDatabase(repository)
     }
 
-    public initDatabase() {
-        this.repo = new MovieRepository();
+    public initDatabase(repository:MovieRepository) {
+        this.repo = new repository();
         return this.repo;
     }
 
