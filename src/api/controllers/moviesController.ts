@@ -5,16 +5,11 @@ export class MoviesController {
 
 
     constructor(repository: MovieRepository){
-        this.initDatabase(repository)
-    }
-
-    public initDatabase(repository:MovieRepository) {
-        this.repo = new repository();
-        return this.repo;
+        this.repo = repository
     }
 
     public async showMovies() {
-        return await this.repo.showMovies();
+        return await this.repo.getAllMovies();
     }
 
     public async createMovie(data: JSON){
