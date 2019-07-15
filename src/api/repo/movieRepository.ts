@@ -2,13 +2,15 @@ import { Movie, MovieModel } from '../databases/mongodb/moviesModel';
 import { SingleMongo } from '../databases/mongodb/initMongo';
 import { Repository } from './Repository';
 
-export class MovieRepository {
+export class MovieRepository extends Repository<MovieModel> {
+
     //private data: MovieDTO;
     private state: number;
     private con: SingleMongo;
     private model = Movie;
 
     public constructor() {
+        super();
         this.con = new SingleMongo('127.0.0.1', 'movies');
         this.con.connection.on('error', console.error.bind(console, 'connection error:'));
         this.con.connection.once('open', function() {
@@ -19,7 +21,7 @@ export class MovieRepository {
         return await this.con.connection;
     }
 
-    public async showMovies() {
+    public async getAllMovies() {
         return await this.model.find().limit(10);
     }
 

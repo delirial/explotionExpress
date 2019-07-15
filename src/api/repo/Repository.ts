@@ -1,15 +1,16 @@
 
 export abstract class Repository<Model> {
-    public getConnection(): any{};
 
-    public async getAll():Promise<Model>;
+    public abstract getConnection(): any;
 
-    public async create(data: JSON):Promise<Model>
+    public abstract async getAllMovies():Promise<Model[]>;
 
-    public async getById(id: number):Promise<Model>
+    public abstract async createMovie(data: JSON):Promise<Model>
 
-    public async updateById(id: number,data: string):Promise<Model>
+    public abstract async getMovieById(id: number):Promise<Model>
 
-    public async deleteById(id: number):Promise<Model>
+    public abstract async updateMovieById(id: number,data: string):Promise<Model>
+
+    public abstract async deleteMovieById(id: number):Promise<Model>
 
 }
