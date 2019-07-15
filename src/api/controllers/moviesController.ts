@@ -1,27 +1,39 @@
 import { MovieRepository } from '../repo/movieRepository';
-import { MovieDTO } from 'MovieDTO';
 
 export class MoviesController {
     private repo: MovieRepository;
-    /**
-     * Init Repository for Movies
-     * @returns MovieRepository
-     */
+
+
+    constructor(Repository){
+        
+    }
+
     public initDatabase() {
         this.repo = new MovieRepository();
         return this.repo;
     }
 
-    private static parseInput(data: any): MovieDTO {
-        return {
-            title: data.title,
-            year: data.year,
-            genre: data.genre,
-            duration: data.duration,
-        };
-    }
-
     public async showMovies() {
         return await this.repo.showMovies();
+    }
+
+    public async createMovie(data: JSON){
+        return await this.repo.
+    }
+
+    public async getMovieById(id: number){
+        return await this.repo.getMovieById(id)
+    }
+
+    public async updateMovieById(id: number,data: string){
+        return await this.repo.updateMovieById(id,data)
+    }
+
+    public async deleteMovieById(id: number){
+        return await this.repo.deleteMovieById(id)
+    }
+
+    public async giveLikeById(id: number){
+        return await this.repo.giveLikeById(id)
     }
 }

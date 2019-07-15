@@ -2,25 +2,20 @@ import { Router } from 'express';
 import { MoviesController } from '../controllers/moviesController';
 const router: Router = Router();
 
-const movies = [{ id: 0, title: 'Titanic', year: 1949, likes: 0 }];
-
-router.post('/', (req, res) => {
-    if (Object.keys(req.body).length <= 0) return res.status(400).send('Empty body?');
-
-    const newMovie = req.body;
-    movies.push(newMovie);
-    res.json({ message: 'Added', newMovie });
-});
-
 const controller = new MoviesController();
 const db = controller.initDatabase();
+
+
 router.get('/:id', (req, res) => {
     const moviesId = req.params.id;
-    const movie = movies.find(movie => movie.id == moviesId);
-    res.json(movie);
+    const movie = controller.getMovieById(moviesId)
+    .then(data => {
+        res.json(movie);
+    })
+    .catch(e => res.json({ error: e }))
 });
 
-router.get('/get-movies', (req, res) => {
+router.get('/showMovies', (req, res) => {
     controller
         .showMovies()
         .then(data => {
@@ -28,29 +23,44 @@ router.get('/get-movies', (req, res) => {
         })
         .catch(e => res.json({ error: e }));
 });
+
+router.post('/', (req, res) => {
+    controller.createMovie(req.body)
+    .then(data => {
+        res.json(data);
+    })
+    .catch(e => res.json({ error: e }));
+});
+
+
 router.put('/:id', (req, res) => {
     const moviesId = req.params.id;
     const newMovie = req.body;
-    const oldMovie = movies.find(movie => movie.id == moviesId);
-    const index = movies.findIndex(movie => movie.id == moviesId);
-    const movie2Insert = { ...oldMovie, ...newMovie, id: req.params.id };
-    movies[index] = movie2Insert;
-    res.json({ message: 'Updated' });
+    controller.updateMovieById(moviesId,newMovie)
+    .then(data => {
+        res.json({ message: 'Updated' });
+    })
+    .catch(e => res.json({ error: e }));
+
+});
+
+router.put('/like/:id', (req, res) => {
+    const movieId = req.params.id;
+    controller.giveLikeById(movieId)
+    .then(data => {
+        res.json({ message: 'Likes' });
+    })
+    .catch(e => res.json({ error: e }));
 });
 
 router.delete('/:id', (req, res) => {
     const moviesId = req.params.id;
-    const index = movies.findIndex(movie => movie.id == moviesId);
-    delete movies[index];
-    res.json({ message: 'Deleted' });
-});
-
-router.put('/like/:title', (req, res) => {
-    const movieTitle = req.params.title;
-    const index = movies.findIndex(movie => movie.title == movieTitle);
-    movies[index] = { likes: 0, ...movies[index] };
-    movies[index].likes += 1;
-    res.json(movies[index]);
+    controller.deleteMovieById(moviesId)
+    .then(data => {
+        res.json({ message: 'Deleted' });
+    })
+    .catch(e => res.json({ error: e }));
+    
 });
 
 export const moviesRouter: Router = router;
