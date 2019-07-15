@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { MoviesController } from '../controllers/moviesController';
-import  MovieDTO, { MovieDTO }  from "../../types/MovieDTO";
+import  MovieDTO  from "../../types/MovieDTO";
+import { MovieRepository } from '../repo/movieRepository';
 const router: Router = Router();
 
-const controller = new MoviesController();
-const db = controller.initDatabase();
+const controller = new MoviesController(new MovieRepository);
 
 
 router.get('/:id', (req, res) => {
