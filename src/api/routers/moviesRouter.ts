@@ -4,22 +4,21 @@ import  MovieDTO  from "../../types/MovieDTO";
 import { MovieRepository } from '../repo/movieRepository';
 const router: Router = Router();
 
-const controller = new MoviesController(new MovieRepository);
+const controller = new MoviesController(new MovieRepository('127.0.0.1','movies'));
 
 
-router.get('/:id', (req, res) => {
-    const moviesId = req.params.id;
-    const movie = controller.getMovieById(moviesId)
+router.get('/get-movies/:id', (req, res) => {
+    controller.getMovieById(req.params.id)
     .then(data => {
         res.json(data);
     })
     .catch(e => res.json({ error: e }))
 });
 
-router.get('/showMovies', (req, res) => {
-    controller.showMovies()
+router.get('/get-movies', (req, res) => {
+    controller.getAllMovies()
         .then(data => {
-            res.json(data);
+            res.json(data)
         })
         .catch(e => res.json({ error: e }));
 });
@@ -27,16 +26,14 @@ router.get('/showMovies', (req, res) => {
 router.post('/', (req, res) => {
     controller.createMovie(req.body)
     .then((data: MovieDTO) => {
-        res.json(data);
+        res.json({ message: 'Created' , object: data});
     })
     .catch(e => res.json({ error: e }));
 });
 
 
 router.put('/:id', (req, res) => {
-    const moviesId = req.params.id;
-    const newMovie = req.body;
-    controller.updateMovieById(moviesId,newMovie)
+    controller.updateMovieById(req.params.id,req.body)
     .then(data => {
         res.json({ message: 'Updated' , object: data});
     })
@@ -45,8 +42,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.put('/like/:id', (req, res) => {
-    const movieId = req.params.id;
-    controller.giveLikeById(movieId)
+    controller.giveLikeById(req.params.id)
     .then(data => {
         res.json({ message: 'Likes', object: data });
     })

@@ -14,8 +14,7 @@ app.use('/users', usersRouter);
 app.use('/movies', moviesRouter);
 app.use('/games', gamesRouter);
 
-const port = process.env.PORT;
-
+const port = process.env.PORT || 3000;
 /*
 he web process must listen for HTTP traffic on $PORT,
 which is set by Heroku. EXPOSE in Dockerfile is not respected,
