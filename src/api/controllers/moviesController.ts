@@ -11,23 +11,23 @@ export class MoviesController {
     }
 
     public async getAllMovies() {
-        return await this.repo.getAllMovies();
+        return await this.repo.getAll();
     }
 
     public async createMovie(data: MovieDTO){
-        return await this.repo.createMovie(data)
+        return await this.repo.create(data)
     }
 
     public async getMovieById(id: ObjectId | number){
-        return await this.repo.getMovieById(id)
+        return await this.repo.getById(id)
     }
 
     public async updateMovieById(id: ObjectId | number,data: string){
-        return await this.repo.updateMovieById(id,data)
+        return await this.repo.updateById(id,data)
     }
 
     public async deleteMovieById(id: ObjectId | number){
-        return await this.repo.deleteMovieById(id)
+        return await this.repo.deleteById(id)
     }
 
     public async giveLikeById(id: ObjectId | number){

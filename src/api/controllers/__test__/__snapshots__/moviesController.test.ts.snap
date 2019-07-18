@@ -3,7 +3,7 @@
 exports[`MoviesController Parse Data to Json Validate Data for Database 1`] = `
 Array [
   Object {
-    "_id": "5d2bb7bd06d8cc0d851ce86d",
+    "_id": "5d305371610ea402dee6547b",
     "duration": 100,
     "genre": Array [
       "Comedy",
@@ -13,7 +13,7 @@ Array [
     "year": 2019,
   },
   Object {
-    "_id": "5d2bb7bd06d8cc0d851ce86e",
+    "_id": "5d305371610ea402dee6547c",
     "duration": 181,
     "genre": Array [
       "SuperHero",
@@ -23,7 +23,7 @@ Array [
     "year": 2019,
   },
   Object {
-    "_id": "5d2bb7bd06d8cc0d851ce86f",
+    "_id": "5d305371610ea402dee6547d",
     "duration": 129,
     "genre": Array [
       "Terror",
@@ -31,6 +31,39 @@ Array [
     ],
     "title": "Glass",
     "year": 2019,
+  },
+  Object {
+    "__v": 0,
+    "_id": "5d305377066cd610945a334f",
+    "duration": 169,
+    "genre": Array [
+      "science",
+      "fiction",
+    ],
+    "title": "Interstellar",
+    "year": 2014,
+  },
+  Object {
+    "__v": 0,
+    "_id": "5d3053e75bb36122d8c2dbf1",
+    "duration": 169,
+    "genre": Array [
+      "science",
+      "fiction",
+    ],
+    "title": "Interstellar",
+    "year": 2014,
+  },
+  Object {
+    "__v": 0,
+    "_id": "5d3053ea11c0aa22d8d7ee60",
+    "duration": 169,
+    "genre": Array [
+      "science",
+      "fiction",
+    ],
+    "title": "Interstellar",
+    "year": 2014,
   },
 ]
 `;

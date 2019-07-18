@@ -1,19 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MovieRepository createMovie should return void or callback 1`] = `
+Object {
+  "__v": 0,
+  "_id": "5d3054fcf7b5af25f4eacae8",
+  "duration": 169,
+  "genre": Array [
+    "science",
+    "fiction",
+  ],
+  "title": "Interstellar",
+  "year": 2014,
+}
+`;
+
 exports[`MovieRepository getAllMovies should return all movies in JSON 1`] = `
 Array [
   Object {
-    "_id": "5d2bb7bd06d8cc0d851ce86d",
-    "duration": 100,
-    "genre": Array [
-      "Comedy",
-      "Animation",
-    ],
-    "title": "Toy Story 4",
-    "year": 2019,
-  },
-  Object {
-    "_id": "5d2bb7bd06d8cc0d851ce86e",
+    "_id": "5d305371610ea402dee6547c",
     "duration": 181,
     "genre": Array [
       "SuperHero",
@@ -23,7 +27,7 @@ Array [
     "year": 2019,
   },
   Object {
-    "_id": "5d2bb7bd06d8cc0d851ce86f",
+    "_id": "5d305371610ea402dee6547d",
     "duration": 129,
     "genre": Array [
       "Terror",
@@ -34,7 +38,7 @@ Array [
   },
   Object {
     "__v": 0,
-    "_id": "5d2d02a52dcbb905b4d83a26",
+    "_id": "5d305377066cd610945a334f",
     "duration": 169,
     "genre": Array [
       "science",
@@ -45,7 +49,7 @@ Array [
   },
   Object {
     "__v": 0,
-    "_id": "5d2d02dd13a94105b4574cc9",
+    "_id": "5d3053e75bb36122d8c2dbf1",
     "duration": 169,
     "genre": Array [
       "science",
@@ -56,7 +60,7 @@ Array [
   },
   Object {
     "__v": 0,
-    "_id": "5d2d02e232a27405b4d30b4d",
+    "_id": "5d3053ea11c0aa22d8d7ee60",
     "duration": 169,
     "genre": Array [
       "science",
@@ -67,40 +71,7 @@ Array [
   },
   Object {
     "__v": 0,
-    "_id": "5d2d0381f11d4605b491c924",
-    "duration": 169,
-    "genre": Array [
-      "science",
-      "fiction",
-    ],
-    "title": "Interstellar",
-    "year": 2014,
-  },
-  Object {
-    "__v": 0,
-    "_id": "5d2d04d19730d005b4e9b455",
-    "duration": 169,
-    "genre": Array [
-      "science",
-      "fiction",
-    ],
-    "title": "Georgia",
-    "year": 2014,
-  },
-  Object {
-    "__v": 0,
-    "_id": "5d2d06ac87681b3bd8037d0f",
-    "duration": 169,
-    "genre": Array [
-      "science",
-      "fiction",
-    ],
-    "title": "Interstellar",
-    "year": 2014,
-  },
-  Object {
-    "__v": 0,
-    "_id": "5d2d070bca5a3e3bd8c2faff",
+    "_id": "5d3054fcf7b5af25f4eacae8",
     "duration": 169,
     "genre": Array [
       "science",
@@ -114,28 +85,26 @@ Array [
 
 exports[`MovieRepository getMovieById should return data for Id 1`] = `
 Object {
-  "__v": 0,
-  "_id": "5d2d04d19730d005b4e9b455",
-  "duration": 169,
+  "_id": "5d305371610ea402dee6547b",
+  "duration": 100,
   "genre": Array [
-    "science",
-    "fiction",
+    "Comedy",
+    "Animation",
   ],
-  "title": "Georgia",
-  "year": 2014,
+  "title": "Toy Story 4",
+  "year": 2019,
 }
 `;
 
 exports[`MovieRepository updateMovieById should return json object updated 1`] = `
 Object {
-  "__v": 0,
-  "_id": "5d2d04d19730d005b4e9b455",
-  "duration": 169,
+  "_id": "5d305371610ea402dee6547b",
+  "duration": 100,
   "genre": Array [
-    "science",
-    "fiction",
+    "Comedy",
+    "Animation",
   ],
-  "title": "Georgia",
-  "year": 2014,
+  "title": "Toy Story 4",
+  "year": 2019,
 }
 `;

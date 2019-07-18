@@ -20,7 +20,7 @@ describe('MovieRepository', () => {
     });
     describe('createMovie', () => {
         test('should return void or callback', () => {
-            return repo.createMovie(newMovie)
+            return repo.create(newMovie)
             .then(data => {
                 console.log("Create :",data)
                 expect(data).toMatchSnapshot();
@@ -29,8 +29,8 @@ describe('MovieRepository', () => {
     });
     describe('getMovieById', () => {
         test('should return data for Id', () => {
-            const id = new ObjectId('5d2d04d19730d005b4e9b455')
-            return repo.getMovieById(id)
+            const id = new ObjectId('5d305371610ea402dee6547b')
+            return repo.getById(id)
             .then(data => {
                 console.log("Get :",data)
                 expect(data).toMatchSnapshot();
@@ -39,8 +39,8 @@ describe('MovieRepository', () => {
     });
     describe('updateMovieById', () => {
         test('should return json object updated', () => {
-            const id = new ObjectId('5d2d04d19730d005b4e9b455')
-            return repo.updateMovieById(id,{title:'Georgia'})
+            const id = new ObjectId('5d305371610ea402dee6547b')
+            return repo.updateById(id,{title:'Georgia'})
             .then(data => {
                 console.log("Update: ",data)
                 expect(data).toMatchSnapshot();
@@ -49,8 +49,8 @@ describe('MovieRepository', () => {
     });
     describe('deleteMovieById', () => {
         test('should return a delete response with obj and number', () => {
-            const id = new ObjectId('5d2d070bca5a3e3bd8c2faff')
-            return repo.deleteMovieById(id)
+            const id = new ObjectId('5d305371610ea402dee6547b')
+            return repo.deleteById(id)
             .then(data => {
                 console.log("Delete: ",data)
                 expect(data).toBe(data);
@@ -59,7 +59,7 @@ describe('MovieRepository', () => {
     });
     describe('giveLikeId', () => {
         test('should return a new property for object', () => {
-            const id = new ObjectId('5d2d04d19730d005b4e9b455')
+            const id = new ObjectId('5d305371610ea402dee6547d')
             return repo.giveLikeById(id)
             .then(data => {
                 console.log("Give: ",data)
@@ -69,7 +69,7 @@ describe('MovieRepository', () => {
     });
     describe('getAllMovies', () => {
         test('should return all movies in JSON', () => {
-            return repo.getAllMovies()
+            return repo.getAll()
             .then(data => {
                 console.log("All: ",data)
                 expect(data).toMatchSnapshot();
